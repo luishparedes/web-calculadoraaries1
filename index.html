@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIES</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <h2>ARIES</h2>
+        <input type="text" id="producto" placeholder="Nombre del producto" required>
+        <input type="number" id="costo" placeholder="Costo del producto" oninput="calcular()" required>
+        <input type="number" id="kilos" placeholder="Kilos comprados" oninput="calcular()" required>
+        <select id="moneda" onchange="calcular()">
+            <option value="USD">$ (Dólares)</option>
+            <option value="PESO">? (Pesos)</option>
+            <option value="EUR">€ (Euros)</option>
+        </select>
+        <p id="resultado"></p>
+
+        <h2>MERMA (PERDIDA)</h2>
+        <p class="mensaje">Si no tienes merma, coloca 0.</p>
+        <input type="number" id="merma" placeholder="Kilos de pérdida" oninput="calcularMerma()" required>
+        <select id="unidad" onchange="calcularMerma()">
+            <option value="kilos">Kilos</option>
+            <option value="gramos">Gramos</option>
+        </select>
+        <p id="resultadoMerma"></p>
+
+        <h2>COSTO MAS MERMA (INCREMENTO)</h2>
+        <button onclick="calcularIncremento()">Calcular</button>
+        <p id="resultadoIncremento"></p>
+
+        <h2>COSTO DE VENTA FINAL</h2>
+        <input type="number" id="utilidad" placeholder="Porcentaje de utilidad deseado" required>
+        <button onclick="calcularVentaFinal()">Calcular</button>
+        <p id="resultadoVentaFinal"></p>
+    </div>
+
+    <div class="menu">
+        <button onclick="guardarProducto()">Guardar Producto</button>
+        <button onclick="mostrarLista()">Mostrar Lista de Precios</button>
+    </div>
+
+    <div class="product-list" id="listaProductos"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
